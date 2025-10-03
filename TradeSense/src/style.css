@@ -1,0 +1,33 @@
+:root {
+  font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC',
+    'Microsoft YaHei', sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #303133;
+  background-color: #f5f7fa;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: #409eff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #337ecc;
+}
+
+body {
+  margin: 0;
+  background-color: #f5f7fa;
+}
+
+#app {
+  height: 100vh;
+}
