@@ -115,4 +115,32 @@ function runDecision() {
 .trade-advice__empty {
   margin-top: 48px;
 }
+
+@media (max-width: 768px) {
+  .trade-advice__card {
+    padding: 16px;
+  }
+
+  .trade-advice__header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .trade-advice__header h2 {
+    font-size: 20px;
+  }
+
+  .trade-advice__header p {
+    font-size: 14px;
+  }
+
+  .trade-advice__result pre {
+    font-size: 14px;
+  }
+
+  .trade-advice__empty {
+    margin-top: 24px;
+  }
+}
+
 </style>

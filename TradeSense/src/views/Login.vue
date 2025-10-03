@@ -152,4 +152,19 @@ const handleSubmit = () => {
   color: #909399;
   font-size: 13px;
 }
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 32px 24px;
+  }
+
+  .login-card h1 {
+    font-size: 24px;
+  }
+
+  .login-card__subtitle {
+    font-size: 14px;
+  }
+}
+
 </style>

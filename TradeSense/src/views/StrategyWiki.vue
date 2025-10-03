@@ -243,4 +243,42 @@ const strategies = [
   flex-wrap: wrap;
   gap: 6px;
 }
+
+@media (max-width: 1024px) {
+  .strategy-wiki__card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .strategy-wiki__card {
+    padding: 16px;
+  }
+
+  .strategy-wiki__header h2 {
+    font-size: 22px;
+  }
+
+  .strategy-wiki__header p {
+    font-size: 14px;
+  }
+
+  .strategy-wiki__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .strategy-wiki__item {
+    min-height: auto;
+  }
+
+  .strategy-wiki__item-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .strategy-wiki__summary {
+    font-size: 14px;
+  }
+}
+
 </style>

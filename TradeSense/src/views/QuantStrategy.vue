@@ -1293,4 +1293,86 @@ function toArray(value) {
 .quant-strategy__asset-label {
   white-space: nowrap;
 }
+
+@media (max-width: 1024px) {
+  .quant-strategy__card {
+    padding: 20px;
+  }
+
+  .quant-strategy__header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .quant-strategy__actions {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .quant-strategy__card {
+    padding: 16px;
+  }
+
+  .quant-strategy__header h2 {
+    font-size: 20px;
+  }
+
+  .quant-strategy__header p {
+    font-size: 14px;
+  }
+
+  .quant-strategy__badges {
+    gap: 6px;
+  }
+
+  .quant-strategy__actions {
+    gap: 12px;
+  }
+
+  .quant-strategy__form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .quant-strategy__form :deep(.el-form-item) {
+    margin: 0 !important;
+    width: 100%;
+  }
+
+  .quant-strategy__form :deep(.el-select),
+  .quant-strategy__form :deep(.el-input),
+  .quant-strategy__form :deep(.el-slider),
+  .quant-strategy__form :deep(.el-radio-group),
+  .quant-strategy__form :deep(.el-date-editor) {
+    width: 100%;
+  }
+
+  .quant-strategy__form :deep(.el-radio-group) {
+    flex-wrap: wrap;
+  }
+
+  .quant-strategy__hint {
+    white-space: normal;
+  }
+
+  .quant-strategy__metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .quant-strategy__metric-value {
+    font-size: 18px;
+  }
+
+  .quant-strategy__footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
 </style>

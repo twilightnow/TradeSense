@@ -84,4 +84,28 @@
 .home__tag {
   color: #909399;
 }
+
+@media (max-width: 768px) {
+  .home {
+    gap: 16px;
+  }
+
+  .home__header h2 {
+    font-size: 22px;
+  }
+
+  .home__header p {
+    font-size: 14px;
+  }
+
+  .home__grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .home__card {
+    min-height: auto;
+  }
+}
+
 </style>
