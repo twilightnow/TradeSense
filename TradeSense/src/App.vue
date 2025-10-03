@@ -1,18 +1,29 @@
-<script setup>
+﻿<script setup>
 import { computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { House, TrendCharts, DataLine, Collection } from '@element-plus/icons-vue'
 
 const route = useRoute()
+const router = useRouter()
+
 const activeMenu = computed(() => route.path)
+const isLoginRoute = computed(() => route.name === 'Login')
+const username = computed(() => localStorage.getItem('ts-username') || 'TradeSense User')
+
+const handleLogout = () => {
+  localStorage.removeItem('ts-authenticated')
+  localStorage.removeItem('ts-username')
+  router.replace({ name: 'Login' })
+}
 </script>
 
 <template>
-  <el-container class="app-shell">
+  <router-view v-if="isLoginRoute" />
+  <el-container v-else class="app-shell">
     <el-aside width="220px" class="app-shell__aside">
       <div class="app-shell__brand">
         <span class="app-shell__brand-name">TradeSense</span>
-        <p class="app-shell__brand-subtitle">智能交易助手</p>
+        <p class="app-shell__brand-subtitle">Intelligent Trading Assistant</p>
       </div>
       <el-menu
         router
@@ -21,25 +32,29 @@ const activeMenu = computed(() => route.path)
       >
         <el-menu-item index="/">
           <el-icon><House /></el-icon>
-          <span>主页</span>
+          <span>Home</span>
         </el-menu-item>
         <el-menu-item index="/trade-advice">
           <el-icon><TrendCharts /></el-icon>
-          <span>开单建议</span>
+          <span>Trade Advice</span>
         </el-menu-item>
         <el-menu-item index="/quant-strategy">
           <el-icon><DataLine /></el-icon>
-          <span>量化策略</span>
+          <span>Quant Strategy</span>
         </el-menu-item>
         <el-menu-item index="/strategy-wiki">
           <el-icon><Collection /></el-icon>
-          <span>策略百科</span>
+          <span>Strategy Wiki</span>
         </el-menu-item>
       </el-menu>
     </el-aside>
     <el-container>
       <el-header class="app-shell__header">
-        <h1>TradeSense 控制台</h1>
+        <h1>TradeSense Console</h1>
+        <div class="app-shell__header-actions">
+          <span class="app-shell__user">Welcome, {{ username }}</span>
+          <el-button type="primary" link @click="handleLogout">Log out</el-button>
+        </div>
       </el-header>
       <el-main class="app-shell__main">
         <router-view />
@@ -86,14 +101,27 @@ const activeMenu = computed(() => route.path)
 .app-shell__header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   background: #ffffff;
   border-bottom: 1px solid #e4e7ed;
+  padding: 0 24px;
 }
 
 .app-shell__header h1 {
   margin: 0;
   font-size: 22px;
   font-weight: 600;
+}
+
+.app-shell__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.app-shell__user {
+  color: #606266;
+  font-size: 14px;
 }
 
 .app-shell__main {
