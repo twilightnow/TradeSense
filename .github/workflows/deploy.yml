@@ -12,6 +12,9 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: TradeSense
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -19,7 +22,7 @@ jobs:
       - run: npm ci || npm i
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
-        with: { path: dist }
+        with: { path: TradeSense/dist }
   deploy:
     needs: build
     runs-on: ubuntu-latest
